@@ -1,0 +1,28 @@
+body {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+}
+
+table {
+  margin: 0 auto;
+  width: 50vw;
+  height: 50vw;
+}
+
+td {
+  border: 1px solid black;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.shadow {
+  box-shadow: 4px 4px 4px blue inset,
+              -4px -4px 4px blue inset;
+}
