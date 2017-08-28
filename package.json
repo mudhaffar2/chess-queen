@@ -1,0 +1,30 @@
+{
+  "name": "chess-queen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "jshint && mkdirp docs && mkdirp docs/image-diffs && cp src/index.html docs/",
+    "build": "browserify src/script.js -o docs/bundle.js && node-sass src/style.scss docs/style.css",
+    "postbuild": "uglifyjs docs/bundle.js -o docs/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mudhaffar2/chess-queen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mudhaffar2/chess-queen/issues"
+  },
+  "homepage": "https://github.com/mudhaffar2/chess-queen#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "jshint": "latest",
+    "uglify-js": "latest",
+    "cp": "^0.2.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.5.3"
+  }
+}
