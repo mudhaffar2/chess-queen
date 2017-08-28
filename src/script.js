@@ -1,21 +1,22 @@
 
 /////////////////   Table creation function
 
-var table = document.querySelector("table");
 function createChessTable(row,column) {
 
   var matrix = [];
   for(var i = 0; i < row; i++){
-    var tr = document.createElement("tr");
+    var tr = document.createElement("div");
+    tr.classList.add("chessboard__row");
     matrix[i] = [];
     for(var t = 0; t < column; t++){
-      var td = document.createElement("td");
+      var td = document.createElement("div");
+      td.classList.add("chessboard__cell");
       tr.appendChild(td);
       matrix[i].push(td);
 
 
       if((i - t) % 2 !== 0){
-        td.classList.add("black");
+        td.classList.add("chessboard__cell--black");
       }
     }
 
@@ -23,25 +24,6 @@ function createChessTable(row,column) {
   }
   return matrix;
 
-
-  // var tableRows = '';
-  // var bgColor = '';
-  // var check = false;
-  // for (var i = 0; i < row; i++) {
-  //   var tableCols = '';
-  //   for (var j = 0; j < column; j++) {
-  //     if (check) {
-  //       bgColor = ' class="black"';
-  //     } else {
-  //       bgColor = ' class="white"';
-  //     }
-  //     check = !check;
-  //     tableCols += `<td${bgColor}></td>`;
-  //   }
-  //   check = !check;
-  //   tableRows += `<tr>${tableCols}</tr>`
-  // }
-  // table.innerHTML = tableRows;
 }
 
 ////////////////  adding and removing class functions
@@ -49,8 +31,8 @@ function createChessTable(row,column) {
 function removeHighlight() {
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
-      if (table.rows[i].cells[j].classList.contains('shadow')) {
-      table.rows[i].cells[j].classList.remove('shadow');
+      if (table.rows[i].cells[j].classList.contains('chessboard__cell--shadow')) {
+      table.rows[i].cells[j].classList.remove('chessboard__cell--shadow');
       }
     }
   }
@@ -58,13 +40,13 @@ function removeHighlight() {
 
 function highlightRow(rowNum) {
   for (var j = 0; j < cols; j++) {
-    table.rows[rowNum].cells[j].classList.add('shadow');
+    table.rows[rowNum].cells[j].classList.add('chessboard__cell--shadow');
   }
 }
 
 function highlightColumn(colNum) {
   for (var i = 0; i < rows; i++) {
-    table.rows[i].cells[colNum].classList.add('shadow');
+    table.rows[i].cells[colNum].classList.add('chessboard__cell--shadow');
   }
 }
 
@@ -76,11 +58,11 @@ function highlightDiagonals(rowNum, colNum) {
     for (var i = rowNum-1; i > -1; i--) {
       cl = colNum-variant;
       if (cl >= 0) {
-        table.rows[i].cells[cl].classList.add('shadow');
+        table.rows[i].cells[cl].classList.add('chessboard__cell--shadow');
       }
       cr = colNum+variant;
       if (cr <= 7) {
-        table.rows[i].cells[cr].classList.add('shadow');
+        table.rows[i].cells[cr].classList.add('chessboard__cell--shadow');
       }
       variant++;
     }
@@ -93,11 +75,11 @@ function highlightDiagonals(rowNum, colNum) {
     for (var i = rowNum+1; i < 8; i++) {
       cl = colNum-variant;
       if (cl >= 0) {
-        table.rows[i].cells[cl].classList.add('shadow');
+        table.rows[i].cells[cl].classList.add('chessboard__cell--shadow');
       }
       cr = colNum+variant;
       if (cr <= 7) {
-        table.rows[i].cells[cr].classList.add('shadow');
+        table.rows[i].cells[cr].classList.add('chessboard__cell--shadow');
       }
       variant++;
     }
@@ -150,7 +132,7 @@ function addClickHandler() {
 
 var rows = 8;
 var cols = 8;
-var table = document.querySelector("table");
+var table = document.querySelector(".chessboard__table");
 createChessTable(rows,cols);
 window.onload = addClickHandler();
 

@@ -1,28 +1,61 @@
+*, *:before, *:after {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+}
+
 body {
   margin : 0;
   padding : 0;
   box-sizing: border-box;
 }
 
-table {
-  margin: 0 auto;
-  width: 50vw;
-  height: 50vw;
-}
+.chessboard {
 
-td {
-  border: 1px solid black;
-}
+  .chessboard--tilted {
 
-.black {
-  background-color: black;
-}
+  }
 
-.white {
-  background-color: white;
-}
+  .chessboard__table {
+    margin: 0 auto;
+    width: 50vw;
+    height: 50vw;
+  }
 
-.shadow {
-  box-shadow: 4px 4px 4px blue inset,
-              -4px -4px 4px blue inset;
+  .chessboard__row {
+    width:100%;
+    height:12.5%;
+  }
+
+  .chessboard__cell {
+    border: 1px solid black;
+    display: inline-block;
+    height:100%;
+    width:12.5%;
+
+    &:hover {
+
+    }
+
+    &.chessboard__cell--black {
+      background-color: black;
+      &:hover {
+
+      }
+    }
+
+    &.chessboard__cell--shadow {
+      box-shadow: 4px 4px 4px blue inset,
+                  -4px -4px 4px blue inset;
+      &:after {
+        
+      }
+    }
+
+
+  }
+
+
+
+  
 }
