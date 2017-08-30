@@ -20,6 +20,7 @@ body {
     margin: 0 auto;
     width: 50vw;
     height: 50vw;
+    border: 4px solid black;
   }
 
   .chessboard__row {
@@ -28,27 +29,49 @@ body {
   }
 
   .chessboard__cell {
-    border: 1px solid black;
     display: inline-block;
     height:100%;
     width:12.5%;
+    position:relative;
 
     &:hover {
-
+      background-color: green;
     }
 
     &.chessboard__cell--black {
       background-color: black;
       &:hover {
-
+        background-color: green;
       }
     }
 
     &.chessboard__cell--shadow {
-      box-shadow: 4px 4px 4px blue inset,
-                  -4px -4px 4px blue inset;
+      
+
       &:after {
-        
+
+      }
+    }
+
+    .chessboard__cell__circle {
+      width:50%;
+      height:50%;
+      border: 2px solid;
+      border-radius: 50%;
+      position:relative;
+      top:25%;
+      left:25%;
+
+      &.chessboard__cell__circle--white {
+        border-color: white;
+      }
+
+      &.chessboard__cell__circle--black {
+        border-color: black;
+      }
+
+      &.chessboard__cell__circle--hide {
+        display:none;
       }
     }
 
