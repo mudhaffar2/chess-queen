@@ -1,34 +1,42 @@
 
+var arrayMatrixLib = require('x-array-matrix');
+var createMatrix = arrayMatrixLib.createMatrix;
+var rows = 8;
+var cols = 8;
+var matrix = createMatrix(rows,cols);
+var table = document.querySelector(".chessboard__table");
+
+
 /////////////////   Table creation function
 
-function createChessTable(row,column) {
 
-  for(var i = 0; i < row; i++){
-    var tr = document.createElement("div");
-    tr.classList.add("chessboard__row");
 
-    for(var t = 0; t < column; t++){
-      var td = document.createElement("div");
-      td.classList.add("chessboard__cell");
-      var circle = document.createElement("div");
-      circle.classList.add("chessboard__cell__circle");
-      circle.classList.add("chessboard__cell__circle--hide");
-      td.appendChild(circle);
-      tr.appendChild(td);
+matrix.forEach(function(item,i){
+  var tr = document.createElement("div");
+  tr.classList.add("chessboard__row");
 
-      if((i - t) % 2 !== 0){
-        td.classList.add("chessboard__cell--black");
-        circle.classList.add("chessboard__cell__circle--white");
-      } else {
-        circle.classList.add("chessboard__cell__circle--black");
-      }
+  item.forEach(function(cells,t){
+    var td = document.createElement("div");
+    td.classList.add("chessboard__cell");
+    var circle = document.createElement("div");
+    circle.classList.add("chessboard__cell__circle");
+    circle.classList.add("chessboard__cell__circle--hide");
+    td.appendChild(circle);
+    tr.appendChild(td);
+
+    if((i - t) % 2 !== 0){
+      td.classList.add("chessboard__cell--black");
+      circle.classList.add("chessboard__cell__circle--white");
+    } else {
+      circle.classList.add("chessboard__cell__circle--black");
     }
+  });
 
-    table.appendChild(tr);
-  }
-  return;
+  table.appendChild(tr);
+});
 
-}
+
+window.onload = addClickHandler();
 
 ////////////////  adding and removing class functions
 
@@ -116,10 +124,6 @@ function addClickHandler() {
 
 //////////////////////  code
 
-var rows = 8;
-var cols = 8;
-var table = document.querySelector(".chessboard__table");
-createChessTable(rows,cols);
-window.onload = addClickHandler();
+
 
 
