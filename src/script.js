@@ -5,6 +5,11 @@ var rows = 8;
 var cols = 8;
 var matrix = createMatrix(rows,cols);
 var table = document.querySelector(".chessboard__table");
+var tilt = document.querySelector('input');
+
+tilt.addEventListener('click', function(){
+  table.classList.toggle('chessboard--tilted');
+});
 
 
 /////////////////   Table creation function

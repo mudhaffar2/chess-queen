@@ -8,38 +8,42 @@ body {
   padding: 0;
   box-sizing: border-box; }
 
-.chessboard .chessboard__table {
-  margin: 0 auto;
-  width: 50vw;
-  height: 50vw;
-  border: 4px solid black; }
-
-.chessboard .chessboard__row {
-  width: 100%;
-  height: 12.5%; }
-
-.chessboard .chessboard__cell {
-  display: inline-block;
-  height: 100%;
-  width: 12.5%;
-  position: relative; }
-  .chessboard .chessboard__cell:hover {
-    background-color: green; }
-  .chessboard .chessboard__cell.chessboard__cell--black {
-    background-color: black; }
-    .chessboard .chessboard__cell.chessboard__cell--black:hover {
+.chessboard {
+  perspective: 500px; }
+  .chessboard .chessboard--tilted {
+    transform: rotateX(45deg);
+    transition: all 3s ease; }
+  .chessboard .chessboard__table {
+    margin: 0 auto;
+    width: 50vw;
+    height: 50vw;
+    border: 4px solid black;
+    transition: all 3s ease; }
+  .chessboard .chessboard__row {
+    width: 100%;
+    height: 12.5%; }
+  .chessboard .chessboard__cell {
+    display: inline-block;
+    height: 100%;
+    width: 12.5%;
+    position: relative; }
+    .chessboard .chessboard__cell:hover {
       background-color: green; }
-  .chessboard .chessboard__cell .chessboard__cell__circle {
-    width: 50%;
-    height: 50%;
-    border: 2px solid;
-    border-radius: 50%;
-    position: relative;
-    top: 25%;
-    left: 25%; }
-    .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--white {
-      border-color: white; }
-    .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--black {
-      border-color: black; }
-    .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--hide {
-      display: none; }
+    .chessboard .chessboard__cell.chessboard__cell--black {
+      background-color: black; }
+      .chessboard .chessboard__cell.chessboard__cell--black:hover {
+        background-color: green; }
+    .chessboard .chessboard__cell .chessboard__cell__circle {
+      width: 50%;
+      height: 50%;
+      border: 2px solid;
+      border-radius: 50%;
+      position: relative;
+      top: 25%;
+      left: 25%; }
+      .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--white {
+        border-color: white; }
+      .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--black {
+        border-color: black; }
+      .chessboard .chessboard__cell .chessboard__cell__circle.chessboard__cell__circle--hide {
+        display: none; }
